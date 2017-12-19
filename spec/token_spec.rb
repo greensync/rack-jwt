@@ -20,7 +20,7 @@ describe Rack::JWT::Auth do
         header 'Authorization', "Bearer #{issuer.encode(payload, nil, 'none')}"
         get('/')
         expect(last_response.status).to eq 200
-        expect(last_response.headers['jwt.header']).to eq({"typ"=>"JWT", "alg"=>"none"})
+        expect(last_response.headers['jwt.header']).to eq({"alg"=>"none"})
         expect(last_response.headers['jwt.payload']).to eq("foo" => "bar")
       end
     end
@@ -32,7 +32,7 @@ describe Rack::JWT::Auth do
         expect(last_response.status).to eq 200
         body = JSON.parse(last_response.body, symbolize_names: true)
         expect(body).to eq(payload)
-        expect(last_response.headers['jwt.header']).to eq({"typ"=>"JWT", "alg"=>"HS256"})
+        expect(last_response.headers['jwt.header']).to eq({"alg"=>"HS256"})
         expect(last_response.headers['jwt.payload']).to eq("foo" => "bar")
       end
     end
@@ -46,7 +46,7 @@ describe Rack::JWT::Auth do
         expect(last_response.status).to eq 200
         body = JSON.parse(last_response.body, symbolize_names: true)
         expect(body).to eq(payload)
-        expect(last_response.headers['jwt.header']).to eq({"typ" => "JWT", "alg" => "HS256"})
+        expect(last_response.headers['jwt.header']).to eq({"alg" => "HS256"})
         expect(last_response.headers['jwt.payload']).to eq({"foo" => "bar"})
       end
     end
@@ -75,7 +75,7 @@ describe Rack::JWT::Auth do
         expect(last_response.status).to eq 200
         body = JSON.parse(last_response.body, symbolize_names: true)
         expect(body).to eq(payload)
-        expect(last_response.headers['jwt.header']).to eq({"typ"=>"JWT", "alg"=>"HS384"})
+        expect(last_response.headers['jwt.header']).to eq({"alg"=>"HS384"})
         expect(last_response.headers['jwt.payload']).to eq("foo" => "bar")
       end
     end
@@ -89,7 +89,7 @@ describe Rack::JWT::Auth do
         expect(last_response.status).to eq 200
         body = JSON.parse(last_response.body, symbolize_names: true)
         expect(body).to eq(payload)
-        expect(last_response.headers['jwt.header']).to eq({"typ"=>"JWT", "alg"=>"HS512"})
+        expect(last_response.headers['jwt.header']).to eq({"alg"=>"HS512"})
         expect(last_response.headers['jwt.payload']).to eq("foo" => "bar")
       end
     end
@@ -105,7 +105,7 @@ describe Rack::JWT::Auth do
         expect(last_response.status).to eq 200
         body = JSON.parse(last_response.body, symbolize_names: true)
         expect(body).to eq(payload)
-        expect(last_response.headers['jwt.header']).to eq({"typ"=>"JWT", "alg"=>"RS256"})
+        expect(last_response.headers['jwt.header']).to eq({"alg"=>"RS256"})
         expect(last_response.headers['jwt.payload']).to eq("foo" => "bar")
       end
     end
@@ -121,7 +121,7 @@ describe Rack::JWT::Auth do
         expect(last_response.status).to eq 200
         body = JSON.parse(last_response.body, symbolize_names: true)
         expect(body).to eq(payload)
-        expect(last_response.headers['jwt.header']).to eq({"typ"=>"JWT", "alg"=>"RS384"})
+        expect(last_response.headers['jwt.header']).to eq({"alg"=>"RS384"})
         expect(last_response.headers['jwt.payload']).to eq("foo" => "bar")
       end
     end
@@ -137,7 +137,7 @@ describe Rack::JWT::Auth do
         expect(last_response.status).to eq 200
         body = JSON.parse(last_response.body, symbolize_names: true)
         expect(body).to eq(payload)
-        expect(last_response.headers['jwt.header']).to eq({"typ"=>"JWT", "alg"=>"RS512"})
+        expect(last_response.headers['jwt.header']).to eq({"alg"=>"RS512"})
         expect(last_response.headers['jwt.payload']).to eq("foo" => "bar")
       end
     end
@@ -157,7 +157,7 @@ describe Rack::JWT::Auth do
         expect(last_response.status).to eq 200
         body = JSON.parse(last_response.body, symbolize_names: true)
         expect(body).to eq(payload)
-        expect(last_response.headers['jwt.header']).to eq({"typ"=>"JWT", "alg"=>"ES256"})
+        expect(last_response.headers['jwt.header']).to eq({"alg"=>"ES256"})
         expect(last_response.headers['jwt.payload']).to eq("foo" => "bar")
       end
     end
@@ -177,7 +177,7 @@ describe Rack::JWT::Auth do
         expect(last_response.status).to eq 200
         body = JSON.parse(last_response.body, symbolize_names: true)
         expect(body).to eq(payload)
-        expect(last_response.headers['jwt.header']).to eq({"typ"=>"JWT", "alg"=>"ES384"})
+        expect(last_response.headers['jwt.header']).to eq({"alg"=>"ES384"})
         expect(last_response.headers['jwt.payload']).to eq("foo" => "bar")
       end
     end
@@ -197,7 +197,7 @@ describe Rack::JWT::Auth do
         expect(last_response.status).to eq 200
         body = JSON.parse(last_response.body, symbolize_names: true)
         expect(body).to eq(payload)
-        expect(last_response.headers['jwt.header']).to eq({"typ"=>"JWT", "alg"=>"ES512"})
+        expect(last_response.headers['jwt.header']).to eq({"alg"=>"ES512"})
         expect(last_response.headers['jwt.payload']).to eq("foo" => "bar")
       end
     end
@@ -215,7 +215,7 @@ describe Rack::JWT::Auth do
         expect(last_response.status).to eq 200
         body = JSON.parse(last_response.body, symbolize_names: true)
         expect(body).to eq(payload)
-        expect(last_response.headers['jwt.header']).to eq({"typ"=>"JWT", "alg"=>"HS256"})
+        expect(last_response.headers['jwt.header']).to eq({"alg"=>"HS256"})
         expect(last_response.headers['jwt.payload']).to eq("foo" => "bar")
       end
     end

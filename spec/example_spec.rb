@@ -65,7 +65,7 @@ describe 'README examples' do
       expect(last_response.status).to eq 200
       body = JSON.parse(last_response.body, symbolize_names: true)
       expect(body).to eq(payload)
-      expect(last_response.headers['jwt.header']).to eq({"typ"=>"JWT", "alg"=>"HS256"})
+      expect(last_response.headers['jwt.header']).to eq({"alg"=>"HS256"})
     end
   end
 end
